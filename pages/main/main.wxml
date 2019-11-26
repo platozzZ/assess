@@ -1,2 +1,59 @@
-<!--pages/main/main.wxml-->
-<text>pages/main/main.wxml</text>
+<view class="container">
+  <block wx:if="{{showContainer}}">
+    <view class="padding padding-bottom-sm text-26 text-888">
+      我的评估报告
+    </view>
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item" wx:for="{{houseList}}" wx:key="{{item.id}}">
+        <view class="cu-avatar xl" style="{{'background-image:url(' + item.thumbnail_url + ');'}}"></view>
+        <view class='content justify-between'>
+         <view>
+            <view class='text-black defaultFlex'>
+            <view class="text-cut">{{item.name}}</view>
+            <view class="assess margin-left text-magi" wx:if="{{item.assess_status==2}}">
+                  {{item.whole_score + '分'}}
+                
+            </view>
+          </view>
+
+          <view class='text-gray text-sm house-address margin-top-xs'>{{item.address}}</view>
+          <view class="houseTag text-sm margin-top-xs" wx:if="{{item.assess_status == 2}}">
+            <text class="{{item.location_level == 0?'text-bad':item.location_level == 1?'text-well':item.location_level == 2?'text-magi':'text-best'}}">“位置{{item.location_level == 0?'较差':item.location_level == 1?'良好':item.location_level == 2?'优秀':'极好'}}·</text>
+            <text class="{{item.fitment_level == 0?'text-bad':item.fitment_level == 1?'text-well':item.fitment_level == 2?'text-magi':'text-best'}}">装修{{item.fitment_level == 0?'较差':item.fitment_level == 1?'良好':item.fitment_level == 2?'优秀':'极好'}}·</text>
+            <text class="{{item.price_level == 0?'text-bad':item.price_level == 1?'text-well':item.price_level == 2?'text-magi':'text-best'}}">价格{{item.price_level == 0?'较差':item.price_level == 1?'良好':item.price_level == 2?'优秀':'极好'}}·</text>
+            <text class="{{item.customer_level == 0?'text-bad':item.customer_level == 1?'text-well':item.customer_level == 2?'text-magi':'text-best'}}">客流{{item.customer_level == 0?'较差':item.customer_level == 1?'良好':item.customer_level == 2?'优秀':'极好'}}”</text>
+          </view>
+         </view>
+         
+          <view class='house-bottom flex justify-end margin-top-xs'>
+            <view class="flex ">
+              <button class='cu-btn line-magi' catchtap="{{item.assess_status==2?'lookResult':item.assess_status==1?'':'startAssess'}}" data-id="{{item.id}}" data-remote_house_id="{{item.remote_house_id}}" data-key="{{item.key}}" data-assess_status="{{item.assess_status}}">
+                {{item.assess_status==2?'查看报告':item.assess_status==1?'评估中':'开始评估'}}
+              </button>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{emptyContainer}}">
+      <view class="emptyContainer flex flex-direction align-center">
+         <image src="/images/noAssessment.png"></image>
+         <view class="text-center text-sm text-graymagi">暂无民宿评估报告</view>
+      </view>
+  </block>
+</view>
+<view class="cu-modal {{modalName=='assessloading'?'show':''}}">
+  <view class="cu-dialog assess">
+    <view class="bg-img" style="background-image: url('https://magicdn.oss-cn-beijing.aliyuncs.com/pms/miniapp/static/subao.gif');">
+      <view class="cu-bar justify-center text-white">
+        <view class="action">
+          正在评估中
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<is-login wx:if="{{!isLogin}}"></is-login>
+<cu-custom></cu-custom>

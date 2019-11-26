@@ -1,0 +1,16 @@
+/* pages/test/test.wxss */
+ swiper{
+  width:100%;
+  height:446rpx;
+} 
+.item{
+  width:446rpx;
+  height:446rpx;
+  margin-left:150rpx;
+  margin-right:158rpx;
+  margin-top: 29rpx;
+}
+.item image{
+  width:100%;
+  height:100%;
+}

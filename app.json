@@ -1,33 +1,46 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/main/main"
-  ],
-  "tabBar": {
-    "color": "#92979c",
-    "selectedColor": "#0060e4",
-    "borderStyle": "white",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "民宿评估"
-      },
-      {
-        "pagePath": "pages/main/main",
-        "text": "我的"
-      }
-    ]
-  },
-  "networkTimeout": {
-    "request": 20000,
-    "downloadFile": 15000
-  },
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+     
+      "pages/index/index",
+  
+      "pages/main/main",
+      "pages/webview/webview"
+     
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "民宿评估",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#92979c",
+        "selectedColor": "#0060e4",
+        "borderStyle": "white",
+        "list": [
+            {
+              "pagePath": "pages/index/index",
+              "text": "民宿评估",
+              "iconPath": "images/index.png",
+              "selectedIconPath": "images/index_cur.png"
+            },
+           
+            {
+                "pagePath": "pages/main/main",
+                "text": "我的",
+                "iconPath": "images/main.png",
+                "selectedIconPath": "images/main_cur.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 20000,
+        "downloadFile": 15000
+    },
+    "usingComponents": {
+      "cu-custom": "/components/cu-custom/cu-custom",
+      "is-login": "/components/isLogin/isLogin"
+    },
+    
+    "sitemapLocation": "sitemap.json"
 }

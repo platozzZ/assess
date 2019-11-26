@@ -1,1 +1,74 @@
+<view class="container flex-direction">
+  <view class="topBanner response">
+    <image src="/images/homeAssessmentBanner.png" class="response"></image>
+    <view class="padding-left bot">
+      <view class="f50 fw700">Hi 亲爱的伙伴</view>
+      <view class="f30 padding-bottom-lg">添加您的途家房源链接</view>
+    </view>
+  </view>
+  <view class="padding content box" >
+    <view class="area-item bg-white padding-lr padding-tb-sm {{linkList.length>1?'margin-bottom':''}}" wx:for="{{linkList}}" wx:key="*this" >
+      <textarea type="text" class="link br4 response text-sm {{modalName?'b0':''}}" maxlength="-1" placeholder-class='{{modalName?"b0":"b2"}}' value="{{item.link}}" bindfocus="onFocus" data-index="{{index}}" bindinput="bindvalue" placeholder="请在此处粘贴房源链接"></textarea>
+      <view class="flex align-center justify-end">
+        <view class="flex align-center padding-top-xs"  bindtap="showModal" data-target="geturl">
+          <view class="text-22 text-magi text-right">查看如何获取链接</view>
+        <image src="/images/huoqulianjie@2x.png" class="linkimg margin-left-xs"></image>
+        </view>
+      </view>
+    </view>
+    <view class="flex text-center f30 corf margin-top-lg text-sm" >
+      <view class="flex-sub add {{linkList.length>1?'margin-right':''}}" wx:if="{{linkList.length>1}}"catchtap='delete'>删除</view>
+      <view class="flex-sub add " catchtap='add'>继续添加房源</view>
+    </view>
+  </view>
+<!-- 立即支付 -->
+  <cover-view class="canui-foor-fixed br4 flex">
+     <cover-view class="padding-left left flex align-center bg-magigray">
+         <cover-view class="text-magi fw700 {{singlePrice*linkList.length>95?'f120':''}}">¥{{singlePrice*linkList.length}}</cover-view>
+         <cover-view class="text-pr text-graymagi">原价¥{{199*linkList.length}}
+           <cover-view class="lineh"></cover-view>
+         </cover-view>
+     </cover-view>
+      <cover-view class="flex-sub right bg-magi f30 text-center" catchtap="{{isLogin?'toPay':''}}">立即支付
+      <button class="cu-btn line-transparent corf0" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!isLogin}}">立即支付</button>
+      </cover-view>
+  </cover-view>
 
+</view>
+<!-- 获取链接modal -->
+<view class="cu-modal {{modalName == 'geturl'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white solid-bottom text-center response text-lg text-default" style="justify-content:center;">
+		房源链接获取方式
+		</view>
+		<view class="margintext-26 bg-white text-rs geturlCotent flex">
+			<scroll-view class="flex-sub" scroll-y>
+				<block wx:for="{{getUrlList}}" wx:key="*this">
+					<view class="account-title flex justify-center align-center {{index==0?'margin-top-xl':'margin-top-xl'}} margin-bottom">
+						<view class="menu-icon"></view>
+						<view>{{item.title}}</view>
+						<view class="menu-icon"></view>
+					</view>
+          <view class="padding">
+          <view class="account-step">
+						<view class="account-step-cell flex align-end" wx:for="{{item.list}}" wx:key="*this" wx:for-item="l" wx:for-index="i">
+							<view class="margin-right">
+								<image src="/images/step0{{i+1}}.png"></image>
+							</view>
+							<view>{{l}}</view>
+						</view>
+					</view>
+          </view>
+				</block>
+			</scroll-view>
+		</view>
+		<view class="cu-bar bg-white addModal justify-center">
+			<view class="action padding-lr">
+				<button class="confirmbtn bg-magi" catchtap='hideModal'>确定</button>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<cu-custom route="index"></cu-custom>

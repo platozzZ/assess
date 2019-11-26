@@ -1,21 +1,150 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container{
+  height: 100%;
+  
+}
+.topBanner{
+  height:688rpx;
+  color:#fff;
+  position: relative;
+}
+.topBanner image{
+   height:688rpx;
+  position: absolute;
+  z-index: 1;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.f50{
+  font-size: 45rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.bot{
+  position: absolute;
+  bottom:0rpx;
+  z-index: 1;
+}
+.content{
+background:linear-gradient( rgb(12,215,254) 0%,rgb( 23,159,253));
+min-height:calc(100% - 688rpx);
+}
+.area-item{
+   box-shadow: 0rpx 6rpx 13rpx 0px rgba(0,66,167,0.54);
+}
+.link{
+  height:220rpx;
+  line-height: 1.8;
 }
 
-.usermotto {
-  margin-top: 200px;
+.b2{
+  color:#b2b2b2;
+}
+.linkimg{
+  width:20rpx;
+  height: 20rpx;
+}
+
+.linkimg{
+  width:20rpx;
+  height: 20rpx;
+}
+.add{
+  height:90rpx;
+  line-height: 90rpx;
+  border:1rpx solid rgba(255,255,255,0.8);
+}
+.canui-foor-fixed .left{
+  width:500rpx;
+  height:110rpx;
+  line-height: 110rpx;
+background: #f9f9f9;
+}
+.canui-foor-fixed .left .fw700{
+  min-width:90rpx;
+
+}
+.f120{
+  width:120rpx;
+}
+.canui-foor-fixed .left .text-graymagi{
+  min-width:200rpx;
+
+}
+.canui-foor-fixed .left cover-view:nth-child(1){
+ font-size:44rpx;
+}
+.canui-foor-fixed .right{
+  position: relative;
+  height:110rpx;
+  line-height: 110rpx;
+}
+.geturlCotent{
+  max-height: 700rpx;
+}
+.menu-icon{
+  width: 12px;
+  height: 7px;
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+  background-color: #888888;
+  padding: 2px 0;
+  background-clip: content-box;
+}
+.account-title{
+  font-size: 30rpx;
+  color: #888888;
+  /* padding: 90rpx 0 30rpx; */
+}
+.account-title view{
+  margin: 0 10rpx;
+}
+.account-step{
+  /* margin: 0 30rpx; */
+  background: rgb(237,237,237);
+  padding: 40rpx 30rpx;
+}
+.account-step-cell{
+  color: rgb(92,92,92);
+  padding-bottom: 50rpx;
+}
+.account-step-cell:last-child{
+  padding: 0;
+}
+.account-step-cell image{
+  width: 42rpx;
+  height: 42rpx;
+  /* margin-right: 34rpx; */
+}
+.confirmbtn{
+  width:650rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.b0{
+  color:rgba(0,0,0,0);
+}
+.cu-btn.line-transparent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cu-btn.line-transparent::after{
+  border: none;
+}
+.text-pr{
+ position: relative;
+}
+.lineh{
+  position: absolute;
+  top:50%;
+  width:130rpx;
+  height:2rpx;
+  background: #adadad;
+}
+.corf0{
+  color:rgba(0,0,0,0);
+  font-size: 50rpx;
+  width:150rpx;
+  padding:20rpx 0px;
+
 }
